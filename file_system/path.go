@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+	fmt.Println(4 ^ 4)
 	if len(os.Args) != 2 {
 		fmt.Println("Please specify a path.")
 		return
