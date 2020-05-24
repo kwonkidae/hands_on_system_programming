@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
-	"io/ioutil"
 )
+
 type queryWriter struct {
 	Query []byte
 	io.Writer
@@ -25,7 +26,7 @@ func (q queryWriter) Write(b []byte) (n int, err error) {
 		for _, s := range [][]byte{
 			b[:i],
 			[]byte("\x1b[31m"),
-			b[i :  i+l],
+			b[i : i+l],
 			[]byte("\x1b[39m"),
 			b[i+l:],
 		} {
